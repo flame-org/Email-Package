@@ -5,6 +5,7 @@
     "keywords": ["data", "nette", "types", "email"],
     "homepage": "https://github.com/flame-org/Data-Type-Package",
     "license": "BSD-2-Clause-FreeBSD",
+    "minimum-stability":"dev",
 
     "authors": [
         {
