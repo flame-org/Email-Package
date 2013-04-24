@@ -68,4 +68,12 @@ class Address extends Object implements IAddress
 	{
 		return $this->identifier;
 	}
+
+	/**
+	 * @return string
+	 */
+	public function __toString()
+	{
+		return (string) $this->getEmail();
+	}
 }
