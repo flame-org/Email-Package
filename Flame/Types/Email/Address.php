@@ -50,7 +50,7 @@ class Address extends Object implements IAddress
 	 */
 	public function getName()
 	{
-		return (isset($this->data[1]) ? $this->data[1] : '');
+		return (isset($this->data[1])) ? $this->data[1] : '';
 	}
 
 	/**
