@@ -46,7 +46,6 @@ abstract class BaseEmail extends Object implements IEmail
 		$fileTemplate = new FileTemplate($templatePath);
 		$fileTemplate->registerFilter(Callback::create(new Engine));
 		$fileTemplate->registerHelperLoader('Nette\Templating\Helpers::loader');
-		$fileTemplate->registerHelperLoader('Flame\Templating\Helpers::loader');
 		return $fileTemplate;
 	}
 
