@@ -14,7 +14,7 @@ use Nette\Reflection\ClassType;
 class AddressFactory extends Object implements IAdressFactory
 {
 
-	const ADDRESS_CLASS = '\Flame\Types\Email\Address';
+	const ADDRESS_CLASS = '\Flame\Types\Email\Address\Address';
 
 	/**
 	 * @return \Flame\Types\Email\Address
