@@ -52,6 +52,15 @@ abstract class BaseEmail extends Object implements IEmail
 	}
 
 	/**
+	 * @param $key
+	 * @return Address\IAddress
+	 */
+	public function getEmailAddress($key)
+	{
+		return $this->getAddressProvider()->getEmail($key);
+	}
+
+	/**
 	 * @return bool|void
 	 */
 	public function send()
