@@ -8,6 +8,7 @@
 namespace Flame\Types\Email;
 
 use Flame\Caching\CacheProvider;
+use Flame\Types\Email\Address\AddressProvider;
 use Nette\Callback;
 use Nette\Latte\Engine;
 use Nette\Mail\IMailer;
@@ -21,12 +22,25 @@ abstract class BaseEmail extends Object implements IEmail
 	/** @var \Nette\Mail\IMailer  */
 	private $mailer;
 
+	/** @var \Flame\Types\Email\Address\AddressProvider  */
+	private $addressProvider;
+
 	/**
 	 * @param IMailer $mailer
+	 * @param AddressProvider $addressProvider
 	 */
-	public function __construct(IMailer $mailer)
+	public function __construct(IMailer $mailer, AddressProvider $addressProvider)
 	{
 		$this->mailer = $mailer;
+		$this->addressProvider = $addressProvider;
+	}
+
+	/**
+	 * @return AddressProvider
+	 */
+	public function getAddressProvider()
+	{
+		return $this->addressProvider;
 	}
 
 	/**
