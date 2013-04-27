@@ -7,7 +7,9 @@
  */
 namespace Flame\Types\Email;
 
+use Flame\Types\Email\Address\AddressProvider;
 use Nette\Caching\Cache;
+use Nette\Mail\IMailer;
 
 abstract class CachedEmail extends BaseEmail
 {
@@ -17,11 +19,12 @@ abstract class CachedEmail extends BaseEmail
 
 	/**
 	 * @param IMailer $mailer
+	 * @param AddressProvider $addressProvider
 	 * @param Cache $cache
 	 */
-	public function __construct(IMailer $mailer, Cache $cache)
+	public function __construct(IMailer $mailer, AddressProvider $addressProvider, Cache $cache)
 	{
-		parent::__construct($mailer);
+		parent::__construct($mailer, $addressProvider);
 		$this->cache = $cache;
 	}
 
