@@ -6,7 +6,7 @@
  * @date: 23.04.13
  */
 
-namespace Flame\Types\Email;
+namespace Flame\Types\Email\Address;
 
 interface IAddress
 {
