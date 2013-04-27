@@ -5,10 +5,10 @@
  * @author: Jiří Šifalda <sifalda.jiri@gmail.com>
  * @date: 25.04.13
  */
-namespace Flame\Types\Email;
+namespace Flame\Email;
 
 use Flame\Caching\CacheProvider;
-use Flame\Types\Email\Address\AddressProvider;
+use Flame\Email\Address\AddressProvider;
 use Nette\Callback;
 use Nette\Latte\Engine;
 use Nette\Mail\IMailer;
@@ -22,7 +22,7 @@ abstract class BaseEmail extends Object implements IEmail
 	/** @var \Nette\Mail\IMailer  */
 	private $mailer;
 
-	/** @var \Flame\Types\Email\Address\AddressProvider  */
+	/** @var \Flame\Email\Address\AddressProvider  */
 	private $addressProvider;
 
 	/**

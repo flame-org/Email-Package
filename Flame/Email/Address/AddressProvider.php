@@ -6,7 +6,7 @@
  * @date: 23.04.13
  */
 
-namespace Flame\Types\Email\Address;
+namespace Flame\Email\Address;
 
 use Nette\ArrayHash;
 use Nette\InvalidArgumentException;
@@ -15,7 +15,7 @@ use Nette\Object;
 class AddressProvider extends Object
 {
 
-	/** @var \Flame\Types\Email\IAdressFactory  */
+	/** @var \Flame\Email\IAdressFactory  */
 	private $addressFactory;
 
 	/** @var array  */

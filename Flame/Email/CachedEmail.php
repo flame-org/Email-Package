@@ -5,9 +5,9 @@
  * @author: Jiří Šifalda <sifalda.jiri@gmail.com>
  * @date: 25.04.13
  */
-namespace Flame\Types\Email;
+namespace Flame\Email;
 
-use Flame\Types\Email\Address\AddressProvider;
+use Flame\Email\Address\AddressProvider;
 use Nette\Caching\Cache;
 use Nette\Mail\IMailer;
 

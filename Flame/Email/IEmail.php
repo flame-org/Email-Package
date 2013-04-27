@@ -5,7 +5,7 @@
  * @author: Jiří Šifalda <sifalda.jiri@gmail.com>
  * @date: 25.04.13
  */
-namespace Flame\Types\Email;
+namespace Flame\Email;
 
 interface IEmail
 {

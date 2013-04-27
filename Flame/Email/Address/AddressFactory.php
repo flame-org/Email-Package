@@ -6,7 +6,7 @@
  * @date: 23.04.13
  */
 
-namespace Flame\Types\Email\Address;
+namespace Flame\Email\Address;
 
 use Nette\Object;
 use Nette\Reflection\ClassType;
@@ -14,10 +14,10 @@ use Nette\Reflection\ClassType;
 class AddressFactory extends Object implements IAdressFactory
 {
 
-	const ADDRESS_CLASS = '\Flame\Types\Email\Address\Address';
+	const ADDRESS_CLASS = '\Flame\Email\Address\Address';
 
 	/**
-	 * @return \Flame\Types\Email\Address
+	 * @return \Flame\Email\Address
 	 */
 	public function create()
 	{

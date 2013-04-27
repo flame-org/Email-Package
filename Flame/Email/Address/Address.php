@@ -6,7 +6,7 @@
  * @date: 23.04.13
  */
 
-namespace Flame\Types\Email\Address;
+namespace Flame\Email\Address;
 
 use Nette\InvalidArgumentException;
 use Nette\Object;
