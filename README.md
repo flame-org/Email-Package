@@ -1,4 +1,4 @@
-Data-Type-Package
+Email Package
 =================
 
-Basic data types
+Basic classes for working with Emails on Nette

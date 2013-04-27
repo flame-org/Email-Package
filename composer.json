@@ -1,9 +1,9 @@
 {
-	"name": "flame/data-type-package",
+	"name": "flame/email-package",
 	"type": "library",
-    "description": "Basic data types with Nette",
-    "keywords": ["data", "nette", "types", "email"],
-    "homepage": "https://github.com/flame-org/Data-Type-Package",
+    "description": "Basic classes for working with Emails on Nette",
+    "keywords": ["flame", "nette", "types", "email"],
+    "homepage": "https://github.com/flame-org/Email-Package",
     "license": "BSD-2-Clause-FreeBSD",
     "minimum-stability":"dev",
 
@@ -16,7 +16,7 @@
 
     "support":{
         "email":"flame@jsifalda.name",
-        "issues":"https://github.com/flame-org/Data-Type-Package/issues"
+        "issues":"https://github.com/flame-org/Email-Package/issues"
     },
 
 	"require": {
