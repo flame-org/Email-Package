@@ -74,8 +74,13 @@ abstract class BaseEmail extends Object implements IEmail
 	 * @param string $templatePath
 	 * @return FileTemplate
 	 */
-	protected function createFileTemplate($templatePath = '')
+	protected function createFileTemplate($templatePath = null)
 	{
+
+		if($templatePath === null) {
+			$templatePath = $this->getEmailTemplateName();
+		}
+		
 		$fileTemplate = new FileTemplate($templatePath);
 		$fileTemplate->registerFilter(Callback::create(new Engine));
 		$fileTemplate->registerHelperLoader('Nette\Templating\Helpers::loader');
@@ -88,6 +93,14 @@ abstract class BaseEmail extends Object implements IEmail
 	protected function createMessage()
 	{
 		return new Message;
+	}
+
+	/**
+	 * @return string
+	 */
+	protected function getEmailTemplateName()
+	{
+		return $this->getReflection()->getShortName() . '.latte';
 	}
 
 }
