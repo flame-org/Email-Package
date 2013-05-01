@@ -98,7 +98,7 @@ abstract class BaseEmail extends Object implements IEmail
 	/**
 	 * @return string
 	 */
-	protected function getEmailTemplateName()
+	protected function getTemplateName()
 	{
 		return $this->getReflection()->getShortName() . '.latte';
 	}
