@@ -8,24 +8,24 @@
 namespace Flame\Email;
 
 use Flame\Email\Address\AddressProvider;
-use Nette\Caching\Cache;
+use Nette\Caching\IStorage;
 use Nette\Mail\IMailer;
 
 abstract class CachedEmail extends BaseEmail
 {
 
-	/** @var \Nette\Caching\Cache  */
-	private $cache;
+	/** @var \Nette\Caching\IStorage  */
+	private $storage;
 
 	/**
 	 * @param IMailer $mailer
 	 * @param AddressProvider $addressProvider
-	 * @param Cache $cache
+	 * @param IStorage $storage
 	 */
-	public function __construct(IMailer $mailer, AddressProvider $addressProvider, Cache $cache)
+	public function __construct(IMailer $mailer, AddressProvider $addressProvider, IStorage $storage)
 	{
 		parent::__construct($mailer, $addressProvider);
-		$this->cache = $cache;
+		$this->storage = $storage;
 	}
 
 	/**
@@ -35,7 +35,7 @@ abstract class CachedEmail extends BaseEmail
 	protected function createFileTemplate($templateFile = '')
 	{
 		$fileTemplate = parent::createFileTemplate($templateFile);
-		$fileTemplate->setCacheStorage($this->cache->getStorage());
+		$fileTemplate->setCacheStorage($this->storage);
 		return $fileTemplate;
 	}
 
