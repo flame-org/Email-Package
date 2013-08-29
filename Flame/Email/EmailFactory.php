@@ -12,7 +12,7 @@ use Nette\Mail\IMailer;
 use Nette\Mail\Message;
 use Nette\Object;
 
-class EmailFactory extends Object
+class EmailFactory extends Object implements IEmailFactory
 {
 
 	/** @var \Nette\Application\Application  */
