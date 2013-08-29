@@ -7,22 +7,20 @@
  */
 namespace Flame\Email;
 
+use Nette\Mail\Message;
+
 interface IEmail
 {
 
 	/**
-	 * @return \Nette\Templating\FileTemplate
+	 * @param string $path
+	 * @return $this
 	 */
-	public function getFileTemplate();
+	public function setTemplateFile($path);
 
 	/**
-	 * @return \Nette\Mail\Message
-	 */
-	public function getEmailMessage();
-
-	/**
+	 * @param Message $message
 	 * @return void
 	 */
-	public function send();
-
+	public function send(Message $message);
 }

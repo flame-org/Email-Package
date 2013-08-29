@@ -6,9 +6,9 @@
  * @date: 23.04.13
  */
 
-namespace Flame\Email\Address;
+namespace Flame\Email;
 
-interface IAddress
+interface IEmailAddress
 {
 
 	/**
@@ -20,15 +20,5 @@ interface IAddress
 	 * @return string
 	 */
 	public function getName();
-
-	/**
-	 * @return mixed
-	 */
-	public function getData();
-
-	/**
-	 * @return string
-	 */
-	public function getIdentifier();
 
 }
