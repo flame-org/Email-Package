@@ -61,13 +61,13 @@ abstract class BaseEmail extends Object implements IEmail
 	}
 
 	/**
-	 * @return bool|void
+	 * @return void
 	 */
 	public function send()
 	{
 		$message = $this->getEmailMessage()
 			->setHtmlBody($this->getFileTemplate());
-		return $this->getMailer()->send($message);
+		$this->getMailer()->send($message);
 	}
 
 	/**

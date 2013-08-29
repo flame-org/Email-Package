@@ -17,7 +17,7 @@ class AddressFactory extends Object implements IAdressFactory
 	const ADDRESS_CLASS = '\Flame\Email\Address\Address';
 
 	/**
-	 * @return \Flame\Email\Address
+	 * @return Address
 	 */
 	public function create()
 	{

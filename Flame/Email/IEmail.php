@@ -26,7 +26,7 @@ interface IEmail
 	public function getMailer();
 
 	/**
-	 * @return bool
+	 * @return void
 	 */
 	public function send();
 

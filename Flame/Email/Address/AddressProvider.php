@@ -8,14 +8,13 @@
 
 namespace Flame\Email\Address;
 
-use Nette\ArrayHash;
 use Nette\InvalidArgumentException;
 use Nette\Object;
 
 class AddressProvider extends Object
 {
 
-	/** @var \Flame\Email\IAdressFactory  */
+	/** @var \Flame\Email\Address\IAdressFactory  */
 	private $addressFactory;
 
 	/** @var array  */
@@ -48,8 +47,9 @@ class AddressProvider extends Object
 	{
 		$email = $this->get($key);
 
-		if($email === null)
+		if($email === null) {
 			throw new InvalidArgumentException('Email with key "' . $key . '" does not exist');
+		}
 
 		return $this->addressFactory->create($key, $email);
 	}
