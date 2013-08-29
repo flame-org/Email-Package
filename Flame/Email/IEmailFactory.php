@@ -11,7 +11,7 @@ interface IEmailFactory
 {
 
 	/**
-	 * @return IEmail
+	 * @return Email
 	 */
 	public function createEmail();
 }

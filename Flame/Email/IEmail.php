@@ -13,6 +13,11 @@ interface IEmail
 {
 
 	/**
+	 * @return \Nette\Templating\FileTemplate
+	 */
+	public function getTemplate();
+
+	/**
 	 * @param string $path
 	 * @return $this
 	 */

@@ -9,11 +9,18 @@ namespace Flame\Email;
 
 use Nette\Application\UI\Presenter;
 use Nette\InvalidArgumentException;
+use Nette\Latte\Engine;
 use Nette\Mail\IMailer;
 use Nette\Mail\Message;
 use Nette\Object;
 use Nette\Templating\FileTemplate;
 
+/**
+ * Class Email
+ *
+ * @package Flame\Email
+ * @property-read \Nette\Templating\ITemplate $template
+ */
 class Email extends Object implements IEmail
 {
 
@@ -25,6 +32,9 @@ class Email extends Object implements IEmail
 
 	/** @var  string */
 	private $templateFile;
+
+	/** @var  \Nette\Templating\FileTemplate */
+	private $template;
 
 	/**
 	 * @param IMailer $mailer
@@ -42,7 +52,7 @@ class Email extends Object implements IEmail
 	public function send(Message $message)
 	{
 		if($this->templateFile !== null) {
-			$message->setHtmlBody($this->createTemplate());
+			$message->setHtmlBody($this->getTemplate());
 		}
 
 		$this->mailer->send($message);
@@ -69,6 +79,7 @@ class Email extends Object implements IEmail
 	{
 		$template = new FileTemplate($this->templateFile);
 		$template->registerHelperLoader('Nette\Templating\Helpers::loader');
+		$template->registerFilter(new Engine);
 
 		// default parameters
 		$template->presenter = $template->_presenter = $this->presenter;
@@ -80,5 +91,17 @@ class Email extends Object implements IEmail
 		$template->basePath = preg_replace('#https?://[^/]+#A', '', $template->baseUrl);
 
 		return $template;
+	}
+
+	/**
+	 * @return \Nette\Templating\FileTemplate
+	 */
+	public function getTemplate()
+	{
+		if($this->template === null) {
+			$this->template = $this->createTemplate();
+		}
+
+		return $this->template;
 	}
 }
