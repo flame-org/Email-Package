@@ -36,28 +36,12 @@ abstract class BaseEmail extends Object implements IEmail
 	}
 
 	/**
-	 * @return AddressProvider
-	 */
-	public function getAddressProvider()
-	{
-		return $this->addressProvider;
-	}
-
-	/**
-	 * @return IMailer
-	 */
-	public function getMailer()
-	{
-		return $this->mailer;
-	}
-
-	/**
 	 * @param $key
 	 * @return Address\IAddress
 	 */
 	public function getEmailAddress($key)
 	{
-		return $this->getAddressProvider()->getEmail($key);
+		return $this->addressProvider->getEmail($key);
 	}
 
 	/**
@@ -67,7 +51,7 @@ abstract class BaseEmail extends Object implements IEmail
 	{
 		$message = $this->getEmailMessage()
 			->setHtmlBody($this->getFileTemplate());
-		$this->getMailer()->send($message);
+		$this->mailer->send($message);
 	}
 
 	/**

@@ -21,11 +21,6 @@ interface IEmail
 	public function getEmailMessage();
 
 	/**
-	 * @return \Nette\Mail\IMailer
-	 */
-	public function getMailer();
-
-	/**
 	 * @return void
 	 */
 	public function send();
