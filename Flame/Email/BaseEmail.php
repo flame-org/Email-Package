@@ -76,9 +76,8 @@ abstract class BaseEmail extends Object implements IEmail
 	 */
 	protected function createFileTemplate($templatePath = null)
 	{
-
 		if($templatePath === null) {
-			$templatePath = $this->getEmailTemplateName();
+			$templatePath = $this->getTemplateName();
 		}
 		
 		$fileTemplate = new FileTemplate($templatePath);
