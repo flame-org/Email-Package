@@ -9,7 +9,6 @@ namespace Flame\Email;
 
 use Nette\Application\UI\Presenter;
 use Nette\InvalidArgumentException;
-use Nette\Latte\Engine;
 use Nette\Mail\IMailer;
 use Nette\Mail\Message;
 use Nette\Object;
@@ -79,7 +78,7 @@ class Email extends Object implements IEmail
 	{
 		$template = new FileTemplate($this->templateFile);
 		$template->registerHelperLoader('Nette\Templating\Helpers::loader');
-		$template->registerFilter(new Engine);
+		$template->registerFilter($this->getDICLatte());
 
 		// default parameters
 		$template->presenter = $template->_presenter = $this->presenter;
@@ -103,5 +102,14 @@ class Email extends Object implements IEmail
 		}
 
 		return $this->template;
+	}
+
+	/**
+	 * @return \Nette\Latte\Engine
+	 */
+	private function getDICLatte()
+	{
+		$method = $this->presenter->getContext()->getMethodName('nette.latte', false);
+		return $this->presenter->getContext()->$method();
 	}
 }
