@@ -12,7 +12,7 @@ Add into your dependencies: `"flame/email-package": ">=2.0.0"`
 	\Flame\Email\DI\EmailsExtension::register($configurator);
 ```
 
-**Configure email via config**
+**Configure emails via config**
 ```yml
 	emails:
         support: [sifalda.jiri@gmail.com, Support]
@@ -99,7 +99,6 @@ class NewUserEmail extends Object implements INewUserEmail
 
     	/**
     	 * @param User $user
-    	 * @param Password $password
     	 */
     	public function sendEmailsOnCreate(User $user)
     	{
@@ -109,3 +108,5 @@ class NewUserEmail extends Object implements INewUserEmail
     }
 
 ```
+
+**Now, you can use Mailer for sending your advanced Nette emails :-)**
