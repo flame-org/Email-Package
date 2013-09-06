@@ -3,7 +3,7 @@ Email Package
 
 Advanced emails with custom templates on Nette
 
-##Exmaple of usage
+##Example of usage
 ```php
 use Enlan\UserModule\Entity\User;
 use Flame\Email\EmailAddress;
