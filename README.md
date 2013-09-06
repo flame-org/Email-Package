@@ -26,10 +26,9 @@ use Enlan\UserModule\Entity\User;
 use Flame\Email\EmailAddress;
 use Flame\Email\IEmailFactory;
 use Flame\Email\IFullMessageFactory;
-use Flame\Types\Password;
 use Nette\Object;
 
-class NewUserEmail extends Object implements INewUserEmail
+class Mailer extends Object
 {
 
 	/** @var  IEmailFactory */
@@ -51,7 +50,7 @@ class NewUserEmail extends Object implements INewUserEmail
 	/**
 	 * @param User $user
 	 */
-	public function send(User $user)
+	public function sendEmailsOnCreate(User $user)
 	{
 		$message = $this->messageFactory
 			->addTo(new EmailAddress($user->getEmail(), $user->getIdentifier()))
@@ -73,39 +72,7 @@ class NewUserEmail extends Object implements INewUserEmail
 ```smarty
 	<h3>Greeting</h3>
 	<p>{$greeting}</p>
-	<a href="{plink Homepage: }" target="_blank">Visit homepage</a>
-
-```
-
-**Mailer**
-```php
-
-	use Enlan\UserModule\Entity\User;
-    use Nette\Object;
-
-    class Mailer extends Object implements IMailer
-    {
-
-    	/** @var \Enlan\UserModule\Emails\INewUserEmail  */
-    	private $newUserEmail;
-
-    	/**
-    	 * @param INewUserEmail $newUserEmail
-    	 */
-    	function __construct(INewUserEmail $newUserEmail)
-    	{
-    		$this->newUserEmail = $newUserEmail;
-    	}
-
-    	/**
-    	 * @param User $user
-    	 */
-    	public function sendEmailsOnCreate(User $user)
-    	{
-    		$this->newUserEmail->send($user);
-    	}
-
-    }
+	<a href="{plink //Homepage: }" target="_blank">Visit homepage</a>
 
 ```
 
