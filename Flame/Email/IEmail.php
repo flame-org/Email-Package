@@ -13,6 +13,17 @@ interface IEmail
 {
 
 	/**
+	 * @param Message $message
+	 * @return $this
+	 */
+	public function setMessage(Message $message);
+
+	/**
+	 * @return Message
+	 */
+	public function getMessage();
+
+	/**
 	 * @return \Nette\Templating\FileTemplate
 	 */
 	public function getTemplate();
@@ -24,8 +35,7 @@ interface IEmail
 	public function setTemplateFile($path);
 
 	/**
-	 * @param Message $message
 	 * @return void
 	 */
-	public function send(Message $message);
+	public function send();
 }

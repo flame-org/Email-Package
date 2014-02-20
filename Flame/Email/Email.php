@@ -35,6 +35,9 @@ class Email extends Object implements IEmail
 	/** @var  \Nette\Templating\FileTemplate */
 	private $template;
 
+	/** @var Message  */
+	private $message;
+
 	/**
 	 * @param IMailer $mailer
 	 * @param Presenter $presenter
@@ -46,15 +49,15 @@ class Email extends Object implements IEmail
 	}
 
 	/**
-	 * @param Message $message
+	 * @reutrn void
 	 */
-	public function send(Message $message)
+	public function send()
 	{
 		if($this->templateFile !== null) {
-			$message->setHtmlBody($this->getTemplate());
+			$this->message->setHtmlBody($this->getTemplate());
 		}
 
-		$this->mailer->send($message);
+		$this->mailer->send($this->message);
 	}
 
 	/**
@@ -88,7 +91,6 @@ class Email extends Object implements IEmail
 		$template->netteCacheStorage = $this->presenter->getContext()->getByType('Nette\Caching\IStorage');
 		$template->baseUri = $template->baseUrl = rtrim($this->presenter->getContext()->getByType('Nette\Http\Request')->getUrl()->getBaseUrl(), '/');
 		$template->basePath = preg_replace('#https?://[^/]+#A', '', $template->baseUrl);
-
 		return $template;
 	}
 
@@ -102,6 +104,24 @@ class Email extends Object implements IEmail
 		}
 
 		return $this->template;
+	}
+
+	/**
+	 * @param Message $message
+	 * @return $this
+	 */
+	public function setMessage(Message $message)
+	{
+		$this->message = $message;
+		return $this;
+	}
+
+	/**
+	 * @return Message
+	 */
+	public function getMessage()
+	{
+		return $this->message;
 	}
 
 	/**
