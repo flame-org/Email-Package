@@ -9,6 +9,7 @@ namespace Flame\Email;
 
 use Nette\Application\UI\Presenter;
 use Nette\InvalidArgumentException;
+use Nette\InvalidStateException;
 use Nette\Mail\IMailer;
 use Nette\Mail\Message;
 use Nette\Object;
@@ -49,10 +50,14 @@ class Email extends Object implements IEmail
 	}
 
 	/**
-	 * @reutrn void
+	 * @throws \Nette\InvalidStateException
 	 */
 	public function send()
 	{
+		if ($this->message === null) {
+			throw new InvalidStateException('Please set Message with ' . __CLASS__ . '::' . 'setMessage()');
+		}
+
 		if($this->templateFile !== null) {
 			$this->message->setHtmlBody($this->getTemplate());
 		}
