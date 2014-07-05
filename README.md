@@ -60,10 +60,11 @@ class Mailer extends Object
 
 		$email = $this->emailFactory
 			->createEmail()
+			->setMessage($message)
 			->setTemplateFile(__DIR__ . '/../templates/NewUserEmail.latte');
 
 		$email->template->greeting = 'Hi, all!';
-		$email->send($message);
+		$email->send();
 	}
 }
 ```
